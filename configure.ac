@@ -48,7 +48,19 @@ AC_ARG_WITH([openwrt],
     [with_openwrt=no])
 AM_CONDITIONAL([BUILDSYSTEM_OPENWRT], [test "x${with_openwrt}" = "xyes"])
 
+PKG_CHECK_MODULES([TINYALSA], [tinyalsa])
+AC_SUBST([TINYALSA_CFLAGS])
+AC_SUBST([TINYALSA_LIBS])
 
+PKG_CHECK_MODULES([AGM], [agm])
+AC_SUBST([AGM_CFLAGS])
+
+PKG_CHECK_MODULES([MMHEADERS], [kvh2xml])
+AC_SUBST([MMHEADERS_CFLAGS])
+
+PKG_CHECK_MODULES([DIAG], [diag])
+AC_SUBST([DIAG_CFLAGS])
+AC_SUBST([DIAG_LIBS])
 
 AC_CONFIG_FILES([ Makefile ar/src/Makefile audio_ftm.pc ])
 AC_OUTPUT

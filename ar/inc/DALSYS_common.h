@@ -104,7 +104,9 @@ typedef void    DALSYSEventObj;
 
 
 // This is for logcat support.
+#ifndef FTM_CUTILS_UNSUPPORTED
 #include "cutils/properties.h"
+#endif
 #define LOG_NDEBUG 0
 #define LOG_NDDEBUG 0
 #define LOG_NIDEBUG 0
@@ -119,7 +121,9 @@ typedef void    DALSYSEventObj;
             (priority == ANDROID_LOG_FATAL))                            \
                 (void)android_printLog(priority, tag, __VA_ARGS__);     \
     })
+#ifndef FTM_CUTILS_UNSUPPORTED
 #include "cutils/log.h"
+#endif
 
 #define DALSYS_Log_Info(...)  LOGV(__VA_ARGS__)
 #define DALSYS_Log_Err(...)   LOGE(__VA_ARGS__)

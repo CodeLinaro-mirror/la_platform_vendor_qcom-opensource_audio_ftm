@@ -9,4 +9,3 @@ Version: @VERSION@
 Libs: -L${libdir} -laudio_ftm
 Cflags: -I${includedir}/audio_ftm
 
-

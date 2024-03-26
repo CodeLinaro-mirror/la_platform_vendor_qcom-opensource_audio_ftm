@@ -58,7 +58,9 @@ when       who     what, where, why
 #ifdef ANDROID
 /* definitions for Android logging */
 #include <log/log.h>
+#ifndef FTM_CUTILS_UNSUPPORTED
 #include <cutils/properties.h>
+#endif
 #else /* ANDROID */
 #define strlcat g_strlcat
 #define strlcpy g_strlcpy
@@ -69,6 +71,7 @@ when       who     what, where, why
 #endif /* ANDROID */
 
 #define SND_CARD_HW      0
+struct test_params params;
 
 /* Semaphore to monitor the completion of the issued test command */
 sem_t semaphore_cmd_complete;
