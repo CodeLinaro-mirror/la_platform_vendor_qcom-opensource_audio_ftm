@@ -48,6 +48,7 @@ when       who     what, where, why
 #include <string.h>
 #include <stdlib.h>
 #include <grp.h>
+#include <tinyalsa/asoundlib.h>
 
 #include "DALSYS_common.h"
 #include "ftm_audio_diag_dispatch.h"
@@ -57,9 +58,7 @@ when       who     what, where, why
 #ifdef ANDROID
 /* definitions for Android logging */
 #include <log/log.h>
-#ifndef FTM_CUTILS_UNSUPPORTED
 #include <cutils/properties.h>
-#endif
 #else /* ANDROID */
 #define strlcat g_strlcat
 #define strlcpy g_strlcpy
@@ -69,7 +68,7 @@ when       who     what, where, why
 #define ALOGD(...)      fprintf(stderr, __VA_ARGS__)
 #endif /* ANDROID */
 
-struct test_params params;
+#define SND_CARD_HW      0
 
 /* Semaphore to monitor the completion of the issued test command */
 sem_t semaphore_cmd_complete;
@@ -241,6 +240,8 @@ int main(int argc, char *argv[])
 #ifdef MSM8960_ALSA
     FILE *fp;
     FILE *fp_config;
+    struct audio_mixer* tmp_mixer = NULL;
+    char *tmpSoundCardName = NULL;
     char soundCardInfo[200];
     char soundCardName[200];
     char config_path[200] = {0};
@@ -251,7 +252,26 @@ int main(int argc, char *argv[])
     } else {
         while((fgets(soundCardInfo, sizeof(soundCardInfo), fp) != NULL)) {
             printf("SoundCardInfo %s", soundCardInfo);
-            sscanf(soundCardInfo, "%*s%*s%*s%*s%s", soundCardName);
+            tmp_mixer = mixer_open(SND_CARD_HW);
+            if (tmp_mixer) {
+                tmpSoundCardName = strdup(mixer_get_name(tmp_mixer));
+                if (!tmpSoundCardName) {
+                    printf("failed to allocate memory for tmpSoundCardName\n");
+                    mixer_close(tmp_mixer);
+                    return -1;
+                }
+                printf("mixer_open success\n");
+                memset(soundCardName, 0, sizeof(soundCardName));
+                strlcpy(soundCardName, tmpSoundCardName, strlen(tmpSoundCardName) + 1);
+                if (tmpSoundCardName)
+                    free(tmpSoundCardName);
+                tmpSoundCardName = NULL;
+                mixer_close(tmp_mixer);
+                tmp_mixer = NULL;
+            } else {
+                printf("mixer_open failed\n");
+                return -1;
+            }
             printf("\nsoundCardName %s\n", soundCardName);
             snprintf(config_path, sizeof(config_path), "%s_%s",
                 "/vendor/etc/ftm_test_config", soundCardName);
