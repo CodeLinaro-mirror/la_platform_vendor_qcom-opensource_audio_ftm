@@ -48,15 +48,7 @@ AC_ARG_WITH([openwrt],
     [with_openwrt=no])
 AM_CONDITIONAL([BUILDSYSTEM_OPENWRT], [test "x${with_openwrt}" = "xyes"])
 
-PKG_CHECK_MODULES([AGM], [agm])
-AC_SUBST([AGM_CFLAGS])
 
-PKG_CHECK_MODULES([KVH2XML], [kvh2xml])
-AC_SUBST([KVH2XML_CFLAGS])
-
-PKG_CHECK_MODULES([DIAG], [diag])
-AC_SUBST([DIAG_CFLAGS])
-AC_SUBST([DIAG_LIBS])
 
 AC_CONFIG_FILES([ Makefile ar/src/Makefile audio_ftm.pc ])
 AC_OUTPUT
