@@ -42,6 +42,12 @@ fi
 
 AM_CONDITIONAL(USE_GLIB, test "x${with_glib}" = "xyes")
 
+AC_ARG_WITH([cutils],
+    AS_HELP_STRING([Use cutils (default is no)]),
+     [with_cutils=$withval],
+     [with_cutils=no])
+AM_CONDITIONAL([CUTILS_SUPPORTED], [test "x${with_cutils}" = "xyes"])
+
 AC_ARG_WITH([openwrt],
     AS_HELP_STRING([use openwrt (default is no)]),
     [with_openwrt=$withval],

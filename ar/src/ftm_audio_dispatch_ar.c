@@ -32,7 +32,7 @@ extern "C" {
 #include <string.h>
 #include <stdint.h>
 #include <ctype.h>
-#ifndef FTM_CUTILS_UNSUPPORTED
+#ifdef FTM_CUTILS_SUPPORTED
 #include "cutils/properties.h"
 #endif
 
@@ -50,7 +50,7 @@ extern "C" {
 #ifdef ANDROID
 /* definitions for Android logging */
 #include <log/log.h>
-#ifndef FTM_CUTILS_UNSUPPORTED
+#ifdef FTM_CUTILS_SUPPORTED
 #include "cutils/properties.h"
 #endif
 #else /* ANDROID */
@@ -9679,7 +9679,7 @@ int test_ftm_pcm_fm_comm(uint32 path, struct test_params *params)
     audio_ftm_fm_hostless_en(1);
 
     //reset the prop so that FM runs until this prop is set to true
-#ifndef FTM_CUTILS_UNSUPPORTED
+#ifdef FTM_CUTILS_SUPPORTED
     property_set("ftm.fm_stop", "0");
 #endif
 

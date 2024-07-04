@@ -58,7 +58,7 @@ when       who     what, where, why
 #ifdef ANDROID
 /* definitions for Android logging */
 #include <log/log.h>
-#ifndef FTM_CUTILS_UNSUPPORTED
+#ifdef FTM_CUTILS_SUPPORTED
 #include <cutils/properties.h>
 #endif
 #else /* ANDROID */
