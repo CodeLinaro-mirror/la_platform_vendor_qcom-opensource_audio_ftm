@@ -18,7 +18,6 @@ AM_CFLAGS =             -Wundef \
 #AM_CFLAGS := -I ${top_srcdir}/ar/inc
 AM_CFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/audio-kernel
 AM_CFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/agm
-AM_CFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/
 AM_CFLAGS += -I $(WORKSPACE)/system/core/include
 AM_CFLAGS += -I $(WORKSPACE)/audio/mm-audio-headers/acdbdata/
 AM_CFLAGS += -I $(WORKSPACE)/vendor/qcom/opensource/agm/service/inc/
@@ -45,5 +44,6 @@ audftm_c_sources =      DALSYS_common.c \
 bin_PROGRAMS = mm_audio_ftm
 mm_audio_ftm_SOURCES = $(audftm_c_sources) $(h_sources)
 mm_audio_ftm_la_CC = @CC@
-mm_audio_ftm_CFLAGS = $(AM_CFLAGS) -DTINYALSA_LIB -DUSE_GLIB @GLIB_CFLAGS@ -DQC_MODIFIED -DFEATURE_EXPORT_SND -DFEATURE_AUDIO_AGC -DFEATURE_VOC_PCM_INTERFACE -DFEATURE_VOICE_PLAYBACK -DFEATURE_VOICE_RECORD -DVERBOSE -D_DEBUG -DMSM8960_ALSA -DINT_MAX=0x7fffffff -include log/logd.h -D_Nonnull="" -DTINYALSA_LIB
+mm_audio_ftm_CFLAGS = $(AM_CFLAGS) -DTINYALSA_LIB -DUSE_GLIB -DQC_MODIFIED -DFEATURE_EXPORT_SND -DFEATURE_AUDIO_AGC -DFEATURE_VOC_PCM_INTERFACE -DFEATURE_VOICE_PLAYBACK -DFEATURE_VOICE_RECORD -DVERBOSE -D_DEBUG -DMSM8960_ALSA -DINT_MAX=0x7fffffff -include log/logd.h -D_Nonnull="" -DTINYALSA_LIB
+mm_audio_ftm_CFLAGS += @GLIB_CFLAGS@ -Dstrlcpy=g_strlcpy -Dstrlcat=g_strlcat  -include glib.h
 mm_audio_ftm_LDADD = -lm -ltinyalsa -lcutils -llog $(DIAG_LIBS) $(GLIB_LIBS) -ldl
