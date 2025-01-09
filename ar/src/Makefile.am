@@ -49,7 +49,7 @@ audftm_c_sources =      DALSYS_common.c \
 bin_PROGRAMS = mm_audio_ftm
 mm_audio_ftm_SOURCES = $(audftm_c_sources) $(h_sources)
 mm_audio_ftm_la_CC = @CC@
-mm_audio_ftm_CFLAGS = $(AM_CFLAGS) -DTINYALSA_LIB -DUSE_GLIB @GLIB_CFLAGS@ -DQC_MODIFIED -DFEATURE_EXPORT_SND -DFEATURE_AUDIO_AGC -DFEATURE_VOC_PCM_INTERFACE -DFEATURE_VOICE_PLAYBACK -DFEATURE_VOICE_RECORD -DVERBOSE -D_DEBUG -DMSM8960_ALSA -DINT_MAX=0x7fffffff -D_Nonnull="" -Dstrlcpy=g_strlcpy -Dstrlcat=g_strlcat -D__H2XML__ -include glib.h
+mm_audio_ftm_CFLAGS = $(AM_CFLAGS) -DTINYALSA_LIB -DUSE_GLIB @GLIB_CFLAGS@ -DQC_MODIFIED -DFEATURE_EXPORT_SND -DFEATURE_AUDIO_AGC -DFEATURE_VOC_PCM_INTERFACE -DFEATURE_VOICE_PLAYBACK -DFEATURE_VOICE_RECORD -DVERBOSE -D_DEBUG -DMSM8960_ALSA -DINT_MAX=0x7fffffff -D_Nonnull="" -D__H2XML__
 mm_audio_ftm_LDADD = -lm -ltinyalsa @DIAG_LIBS@ @GLIB_LIBS@ -ldl
 
 ftmconfdir   = "/etc"
