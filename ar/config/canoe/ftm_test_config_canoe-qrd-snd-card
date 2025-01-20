@@ -2,51 +2,37 @@ tc 1
 #Left Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 tc 2
 #Right Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH2
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:84
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH2 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 tc 3
 #HPH_L
@@ -536,51 +522,37 @@ tc 51
 #Handset By Earpiece
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 tc 53
 #Primary Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
-channels_rx:1
+channels_rx:2
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 OT23 Usage Mode:0
+SA1 Rx Channel Select:CH_Stereo
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
 tc 56
 #HPH
@@ -667,7 +639,7 @@ tc 83
 #FM Speaker Play
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
@@ -676,32 +648,15 @@ pcm_id_tx:104
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA RX1 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_RX1 INP0:RX1
-WSA_COMP1 Switch:1
-WSA_COMP2 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH_Stereo
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 disable
-WSA RX0 MUX:ZERO
-WSA RX1 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP1 Switch:0
-WSA_COMP2 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
 tc 101
 #MIC1
@@ -742,66 +697,6 @@ channels_tx:1
 Txdevice:0
 
 enable
-TX DEC2 MUX:SWR_MIC
-TX SMIC MUX2:SWR_MIC5
-TX_AIF1_CAP Mixer DEC2:1
-ADC2 ChMap:SWRM_TX2_CH2
-ADC2 MUX:CH2_AMIC3
-TX1 MODE:ADC_LP
-ADC2_BCS Disable:1
-ADC2_MIXER Switch:1
-AMIC3_MIXER Switch:1
-
-disable
-TX DEC2 MUX:ZERO
-TX SMIC MUX2:ZERO
-TX_AIF1_CAP Mixer DEC2:0
-ADC2 ChMap:ZERO
-ADC2 MUX:ZERO
-TX1 MODE:ZERO
-ADC2_BCS Disable:0
-ADC2_MIXER Switch:0
-AMIC3_MIXER Switch:0
-
-tc 103
-#MIC3
-!Capture
-gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
-pcm_id_tx:101
-channels_tx:1
-Txdevice:0
-
-enable
-TX DEC5 MUX:SWR_MIC
-TX SMIC MUX5:SWR_MIC8
-TX_AIF1_CAP Mixer DEC5:1
-ADC3 MUX:CH3_AMIC4
-TX2 MODE:ADC_LP
-ADC3 ChMap:SWRM_TX3_CH1
-ADC3_MIXER Switch:1
-AMIC4_MIXER Switch:1
-
-disable
-TX DEC5 MUX:ZERO
-TX SMIC MUX5:ZERO
-TX_AIF1_CAP Mixer DEC5:0
-ADC3 MUX:ZERO
-TX2 MODE:ZERO
-ADC3 ChMap:ZERO
-ADC3_MIXER Switch:0
-AMIC4_MIXER Switch:0
-
-tc 104
-#MIC4
-!Capture
-gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
-pcm_id_tx:101
-channels_tx:1
-Txdevice:0
-
-enable
 TX DEC3 MUX:SWR_MIC
 TX SMIC MUX3:SWR_MIC9
 TX_AIF1_CAP Mixer DEC3:1
@@ -819,7 +714,67 @@ ADC4 ChMap:ZERO
 ADC4 MUX:ZERO
 TX3 MODE:ZERO
 ADC4_MIXER Switch:0
-AMIC5_MIXER Switch:0
+AMIC5_MIXER Switch:ZERO
+
+tc 103
+#MIC3
+!Capture
+gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+pcm_id_tx:101
+channels_tx:1
+Txdevice:0
+
+enable
+TX DEC2 MUX:SWR_MIC
+TX SMIC MUX2:SWR_MIC5
+TX_AIF1_CAP Mixer DEC2:1
+ADC2 MUX:CH2_AMIC3
+TX1 MODE:ADC_LP
+ADC2 ChMap:SWRM_TX2_CH2
+ADC2_BCS Disable:1
+ADC2_MIXER Switch:1
+AMIC3_MIXER Switch:1
+
+disable
+TX DEC2 MUX:ZERO
+TX SMIC MUX2:ZERO
+TX_AIF1_CAP Mixer DEC2:0
+ADC2 MUX:ZERO
+TX1 MODE:ZERO
+ADC2 ChMap:ZERO
+ADC2_BCS Disable:0
+ADC2_MIXER Switch:0
+AMIC3_MIXER Switch:0
+
+tc 104
+#MIC4
+!Capture
+gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+pcm_id_tx:101
+channels_tx:1
+Txdevice:0
+
+enable
+TX DEC5 MUX:SWR_MIC
+TX SMIC MUX5:SWR_MIC8
+TX_AIF1_CAP Mixer DEC5:1
+ADC3 ChMap:SWRM_TX3_CH1
+ADC3 MUX:CH3_AMIC4
+TX2 MODE:ADC_LP
+ADC3_MIXER Switch:1
+AMIC4_MIXER Switch:1
+
+disable
+TX DEC5 MUX:ZERO
+TX SMIC MUX5:ZERO
+TX_AIF1_CAP Mixer DEC5:0
+ADC3 ChMap:ZERO
+ADC3 MUX:ZERO
+TX2 MODE:ZERO
+ADC3_MIXER Switch:0
+AMIC4_MIXER Switch:0
 
 tc 110
 #Speaker MIC
@@ -877,76 +832,7 @@ ADC2_MIXER Switch:0
 ADC2 MUX:ZERO
 AMIC2_MIXER Switch:0
 
-tc 202
-#MIC1 to SpeakerLeft
-!CodecLoop
 
-enable
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC1 ChMap:SWRM_TX2_CH2
-ADC1 MUX:CH1_AMIC1
-TX0 MODE:ADC_LP
-ADC1_MIXER Switch:1
-AMIC1_MIXER Switch:1
-TX_DEC0 Volume:70
-
-WSA_RX0 INP0:DEC0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:84
-
-disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-ADC1 MUX:ZERO
-ADC1_MIXER Switch:0
-AMIC1_MIXER Switch:0
-
-tc 203
-#MIC1 to SpeakerRight
-!CodecLoop
-
-enable
-WSA_RX1 INP0:DEC0
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:40
-
-TX_AIF1_CAP Mixer DEC0:1
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC1 ChMap:SWRM_TX2_CH2
-ADC1 MUX:CH1_AMIC1
-TX0 MODE:ADC_LP
-ADC1_MIXER Switch:1
-AMIC1_MIXER Switch:1
-
-disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
-
-TX_AIF1_CAP Mixer DEC0:0
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-ADC1 MUX:ZERO
-ADC1_MIXER Switch:0
-AMIC1_MIXER Switch:0
 
 tc 204
 #MIC1 to HPH_L
@@ -1029,79 +915,6 @@ ADC2 MUX:ZERO
 AMIC2_MIXER Switch:0
 IIR0 INP0 MUX:ZERO
 
-tc 206
-#AMIC2 to SpeakerLeft
-!CodecLoop
-
-enable
-WSA_RX0 INP0:DEC0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:50
-
-TX DEC0 MUX:SWR_MIC
-ADC2 ChMap:SWRM_TX2_CH2
-TX SMIC MUX0:SWR_MIC5
-ADC2 MUX:CH2_AMIC2
-ADC2 Volume:62
-TX1 MODE:ADC_LP
-ADC2_MIXER Switch:1
-AMIC2_MIXER Switch:1
-
-disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-TX_AIF1_CAP Mixer DEC0:0
-ADC2_MIXER Switch:0
-ADC2 MUX:ZERO
-AMIC2_MIXER Switch:0
-
-tc 207
-#AMIC2 to SpeakerRight
-!CodecLoop
-
-enable
-WSA_RX1 INP0:DEC0
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:50
-
-TX DEC0 MUX:SWR_MIC
-ADC2 ChMap:SWRM_TX2_CH2
-TX SMIC MUX0:SWR_MIC5
-TX_AIF1_CAP Mixer DEC0:1
-ADC2 MUX:CH2_AMIC2
-ADC2 Volume:62
-TX1 MODE:ADC_LP
-ADC2_MIXER Switch:1
-AMIC2_MIXER Switch:1
-
-disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
-
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-TX_AIF1_CAP Mixer DEC0:0
-ADC2_MIXER Switch:0
-ADC2 MUX:ZERO
-AMIC2_MIXER Switch:0
-
 tc 221
 #AMIC1 to EAR AFE loopback
 !AfeLoop
@@ -1115,21 +928,11 @@ pcm_id_tx:104
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA RX1 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_RX1 INP0:RX1
-WSA_COMP1 Switch:1
-WSA_COMP2 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
-WSA_RX1 Digital Volume:70
-
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 OT23 Usage Mode:0
+SA1 Rx Channel Select:CH_Stereo
+SA1 FU21 Stereo Gain Offset dB:75
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -1140,18 +943,8 @@ ADC1_MIXER Switch:1
 AMIC1_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA RX1 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP1 Switch:0
-WSA_COMP2 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1161,10 +954,10 @@ ADC1_MIXER Switch:0
 AMIC1_MIXER Switch:0
 
 tc 222
-#MIC1 to SpkrLeft AFE loopback
+#MIC1 to Earpiece AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
@@ -1173,35 +966,30 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:84
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
-TX_AIF1_CAP Mixer DEC0:1
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC1 ChMap:SWRM_TX2_CH2
+TX DEC2 MUX:SWR_MIC
+TX SMIC MUX2:SWR_MIC4
+TX_AIF1_CAP Mixer DEC2:1
+ADC1 ChMap:SWRM_TX2_CH1
 ADC1 MUX:CH1_AMIC1
 TX0 MODE:ADC_LP
 ADC1_MIXER Switch:1
 AMIC1_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
+TX DEC2 MUX:ZERO
+TX SMIC MUX2:ZERO
+TX_AIF1_CAP Mixer DEC2:0
+ADC1 ChMap:ZERO
 ADC1 MUX:ZERO
+TX0 MODE:ZERO
 ADC1_MIXER Switch:0
 AMIC1_MIXER Switch:0
 
@@ -1209,7 +997,7 @@ tc 223
 #MIC1 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
@@ -1218,13 +1006,11 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH2
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
+
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1236,12 +1022,8 @@ ADC1_MIXER Switch:1
 AMIC1_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH2 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1369,7 +1151,7 @@ tc 226
 #AMIC2 to SpkrRight
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
@@ -1378,13 +1160,11 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH2
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
+
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1396,12 +1176,8 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH2 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1413,7 +1189,7 @@ tc 227
 #AMIC2 to SpkrLeft
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
@@ -1422,13 +1198,11 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:84
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
+
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1440,12 +1214,8 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1457,141 +1227,132 @@ tc 228
 #MIC2 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
-channels_rx:1
+channels_rx:2
 gkv_tx:0-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 OT23 Usage Mode:0
+SA1 Rx Channel Select:CH_Stereo
 
-TX_AIF1_CAP Mixer DEC0:1
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC2 ChMap:SWRM_TX2_CH2
-TX1 MODE:ADC_LP
-ADC2 MUX:CH2_AMIC3
-ADC2_BCS Disable:1
-ADC2_MIXER Switch:1
-AMIC3_MIXER Switch:1
+TX DEC3 MUX:SWR_MIC
+TX SMIC MUX3:SWR_MIC9
+TX_AIF1_CAP Mixer DEC3:1
+ADC4 ChMap:SWRM_TX3_CH2
+ADC4 MUX:CH4_AMIC5
+TX3 MODE:ADC_LP
+ADC4_MIXER Switch:1
+AMIC5_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-ADC2_BCS Disable:0
-ADC2_MIXER Switch:0
-AMIC3_MIXER Switch:0
+
+TX DEC3 MUX:ZERO
+TX SMIC MUX3:ZERO
+TX_AIF1_CAP Mixer DEC3:0
+ADC4 ChMap:ZERO
+ADC4 MUX:ZERO
+TX3 MODE:ZERO
+ADC4_MIXER Switch:0
+AMIC5_MIXER Switch:ZERO
 
 tc 229
 #MIC3 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
-channels_rx:1
+channels_rx:2
 gkv_tx:0-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 OT23 Usage Mode:0
+SA1 Rx Channel Select:CH_Stereo
 
-TX_AIF1_CAP Mixer DEC0:1
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC3 ChMap:SWRM_TX2_CH2
-TX2 MODE:ADC_LP
-ADC3 MUX:CH3_AMIC4
-ADC3_MIXER Switch:1
-AMIC4_MIXER Switch:1
+TX DEC2 MUX:SWR_MIC
+TX SMIC MUX2:SWR_MIC5
+TX_AIF1_CAP Mixer DEC2:1
+ADC2 MUX:CH2_AMIC3
+TX1 MODE:ADC_LP
+ADC2 ChMap:SWRM_TX2_CH2
+ADC2_BCS Disable:1
+ADC2_MIXER Switch:1
+AMIC3_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-ADC3_MIXER Switch:0
-AMIC4_MIXER Switch:0
+
+TX DEC2 MUX:ZERO
+TX SMIC MUX2:ZERO
+TX_AIF1_CAP Mixer DEC2:0
+ADC2 MUX:ZERO
+TX1 MODE:ZERO
+ADC2 ChMap:ZERO
+ADC2_BCS Disable:0
+ADC2_MIXER Switch:0
+AMIC3_MIXER Switch:0
 
 tc 230
 #MIC4 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
-channels_rx:1
+channels_rx:2
 gkv_tx:0-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 OT23 Usage Mode:0
+SA1 Rx Channel Select:CH_Stereo
 
-TX_AIF1_CAP Mixer DEC0:1
-TX DEC0 MUX:SWR_MIC
-TX SMIC MUX0:SWR_MIC5
-ADC4 ChMap:SWRM_TX2_CH2
-TX3 MODE:ADC_LP
-ADC4 MUX:CH4_AMIC5
-ADC4_MIXER Switch:1
-AMIC5_MIXER Switch:1
+TX DEC5 MUX:SWR_MIC
+TX SMIC MUX5:SWR_MIC8
+TX_AIF1_CAP Mixer DEC5:1
+ADC3 ChMap:SWRM_TX3_CH1
+ADC3 MUX:CH3_AMIC4
+TX2 MODE:ADC_LP
+ADC3_MIXER Switch:1
+AMIC4_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DEC0 MUX:ZERO
-TX SMIC MUX0:ZERO
-ADC4_MIXER Switch:0
-AMIC5_MIXER Switch:0
+
+TX DEC5 MUX:ZERO
+TX SMIC MUX5:ZERO
+TX_AIF1_CAP Mixer DEC5:0
+ADC3 ChMap:ZERO
+ADC3 MUX:ZERO
+TX2 MODE:ZERO
+ADC3_MIXER Switch:0
+AMIC4_MIXER Switch:0
 
 tc 241
 #SpeakerLeft to MIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1601,13 +1362,10 @@ channels_tx:1
 Txdevice:0
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1619,12 +1377,9 @@ ADC1_MIXER Switch:1
 AMIC1_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
+
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1637,7 +1392,7 @@ tc 242
 #SpeakerRight to MIC2
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1647,13 +1402,11 @@ channels_tx:1
 Txdevice:0
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH2
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
+
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1666,12 +1419,9 @@ ADC2_MIXER Switch:1
 AMIC3_MIXER Switch:1
 
 disable
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH2 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
+
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1684,7 +1434,7 @@ tc 243
 #Speakers to MIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1694,21 +1444,11 @@ channels_tx:1
 Txdevice:0
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
-
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH_Stereo
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1720,19 +1460,8 @@ ADC1_MIXER Switch:1
 AMIC1_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1876,7 +1605,7 @@ tc 246
 #SpeakerLeft to Headset Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1885,13 +1614,11 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH1
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
+
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1903,12 +1630,8 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1920,7 +1643,7 @@ tc 247
 #SpeakerRight to Headset Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1929,13 +1652,10 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH2
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -1947,12 +1667,8 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-RX_MACRO RX0 MUX:ZERO
-RX INT0_1 MIX1 INP0:ZERO
-RX INT0 DEM MUX:NORMAL_DSM_OUT
-EAR_RDAC Switch:0
-RX_RX0 Digital Volume:70
-RDAC3_MUX:ZERO
+WSA PCM CH2 MUX:ZERO
+SA1 Rx Channel Select:CH_Stereo
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
@@ -1964,7 +1680,7 @@ tc 248
 #Speaker to Secondary Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1973,21 +1689,11 @@ pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA RX0 MUX:AIF1_PB
-WSA_RX0 INP0:RX0
-WSA_COMP1 Switch:1
-SpkrLeft COMP Switch:1
-SpkrLeft VISENSE Switch:1
-SpkrLeft SWR DAC_Port Switch:1
-WSA_RX0 Digital Volume:70
-
-WSA RX1 MUX:AIF1_PB
-WSA_RX1 INP0:RX1
-WSA_COMP2 Switch:1
-SpkrRight COMP Switch:1
-SpkrRight VISENSE Switch:1
-SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:70
+WSA PCM CH1 MUX:AIF_PCM_PB
+WSA PCM CH2 MUX:AIF_PCM_PB
+SA1 Rx Channel Select:CH_Stereo
+SA1 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB:75
 
 TX_AIF1_CAP Mixer DEC0:1
 TX DEC0 MUX:SWR_MIC
@@ -2000,19 +1706,8 @@ ADC2_MIXER Switch:1
 AMIC3_MIXER Switch:1
 
 disable
-WSA RX0 MUX:ZERO
-WSA_RX0 INP0:ZERO
-WSA_COMP1 Switch:0
-SpkrLeft COMP Switch:0
-SpkrLeft VISENSE Switch:0
-SpkrLeft SWR DAC_Port Switch:0
-
-WSA RX1 MUX:ZERO
-WSA_RX1 INP0:ZERO
-WSA_COMP2 Switch:0
-SpkrRight COMP Switch:0
-SpkrRight VISENSE Switch:0
-SpkrRight SWR DAC_Port Switch:0
+WSA PCM CH1 MUX:ZERO
+WSA PCM CH2 MUX:ZERO
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DEC0 MUX:ZERO
