@@ -9,7 +9,7 @@ Description
 ===========================================================================*/
 
 /*===========================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
                          Edit History
@@ -77,7 +77,7 @@ sem_t semaphore_cmd_complete;
 sem_t semaphore_cmd_coming;
 
 /* Callback declaration for AUDIO FTM packet processing */
-void* audio_ftm_diag_dispatch(void* req_pkt);
+void* audio_ftm_diag_dispatch(void* req_pkt, uint16 pkt_len);
 
 #ifdef AUDIO_FEATURE_ENABLED_GCOV
 extern void  __gcov_flush();
@@ -118,6 +118,8 @@ FUNCTION   audio_ftm_diag_dispatch
 DESCRIPTION
   Processes the request packet and sends it to the FTM FM layer for further
   processing
+  pkt_len param is not used but needed to be inline with global
+  diagpkt callback function
 
 DEPENDENCIES
   NIL
@@ -131,12 +133,12 @@ SIDE EFFECTS
 ===========================================================================*/
 void* audio_ftm_diag_dispatch
 (
-  void* req_pkt
+  void* req_pkt , uint16 pkt_len
 )
 {
  void* rsp = NULL;
 
- printf("\n Receiving one command from DIAG \n");
+ printf("\n Receiving one command from DIAG with length = %d\n",pkt_len);
 
  sem_post(&semaphore_cmd_coming);
 
