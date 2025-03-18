@@ -32,7 +32,9 @@ extern "C" {
 #include <string.h>
 #include <stdint.h>
 #include <ctype.h>
-#include <cutils/properties.h>
+#ifdef FTM_CUTILS_SUPPORTED
+#include "cutils/properties.h"
+#endif
 
 /* FTM-specific interfaces and definitions */
 #include "DALSYS_common.h"
@@ -48,7 +50,9 @@ extern "C" {
 #ifdef ANDROID
 /* definitions for Android logging */
 #include <log/log.h>
-#include <cutils/properties.h>
+#ifdef FTM_CUTILS_SUPPORTED
+#include "cutils/properties.h"
+#endif
 #else /* ANDROID */
 #define strlcat g_strlcat
 #define strlcpy g_strlcpy
@@ -106,6 +110,7 @@ unsigned int device_id_rx_test_config;
 unsigned int device_id_tx_test_config;
 unsigned int channels_rx_test_config;
 unsigned int channels_tx_test_config;
+extern struct test_params params;
 
 struct mixer_ctl *get_ctl(struct mixer *m, char *name)
 {
@@ -9674,7 +9679,10 @@ int test_ftm_pcm_fm_comm(uint32 path, struct test_params *params)
     audio_ftm_fm_hostless_en(1);
 
     //reset the prop so that FM runs until this prop is set to true
+#ifdef FTM_CUTILS_SUPPORTED
     property_set("ftm.fm_stop", "0");
+#endif
+
     /* for MDM property_get API not available. Retain old change
        for it. For 8960, it runs till user stops by setting
        prop ftm.fm_stop to true.
@@ -9733,7 +9741,9 @@ int test_ftm_afe_loopback_comm(uint32 path,  struct test_params *params)
         sleep(30);
     } else if (params->test_case == 83 || params->test_case == 74) {
         //reset the prop so that FM runs until this prop is set to true
+#ifndef FTM_CUTILS_UNSUPPORTED
         property_set("ftm.fm_stop", "0");
+#endif
         #ifdef _ANDROID_
             //FM runs until setprop is done for ftm.fm_stop to true
             do {

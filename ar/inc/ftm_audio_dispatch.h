@@ -48,7 +48,6 @@ struct test_params {
   int freq_tolerance;
   pthread_mutex_t lock;
 };
-struct test_params params;
 
 typedef struct
 {
