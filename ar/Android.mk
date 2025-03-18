@@ -24,6 +24,7 @@ LOCAL_MODULE_OWNER       := qti
 LOCAL_VENDOR_MODULE := true
 LOCAL_CFLAGS             := $(mm-audio-ftm-def)
 LOCAL_C_INCLUDES         := $(mm-audio-ftm-inc)
+LOCAL_CFLAGS             += -DFTM_CUTILS_SUPPORTED
 
 LOCAL_SRC_FILES := \
     src/DALSYS_common.c \
