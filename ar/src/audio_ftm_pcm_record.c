@@ -7,7 +7,7 @@ extern "C" {
   @file   audio_ftm_pcm_record.c
   @brief  AUDIO FTM PCM record driver
 ====================================================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 $Header: //source/qcom/qct/multimedia2/Audio/drivers/ftm/8x60/linux/rel/1.0/src/audio_ftm_pcm_record.c#2 $
@@ -493,7 +493,7 @@ audio_ftm_pcm_rec_close
   @return return code, AUDIO_FTM_SUCCESS on successful completion, error code otherwise
 ==================================================================================================*/
 AUDIO_FTM_STS_T
-audio_ftm_pcm_rec_read()
+audio_ftm_pcm_rec_read(AUDIO_FTM_CLIENT_HANDLE_T clientHandle, void *pBuffer, uint32 nBufSize, uint32 *pCount)
 {
   return AUDIO_FTM_SUCCESS;
 }
@@ -510,7 +510,7 @@ audio_ftm_pcm_rec_read()
   @return return code, AUDIO_FTM_SUCCESS on successful completion, error code otherwise
 ==================================================================================================*/
 AUDIO_FTM_STS_T
-audio_ftm_pcm_rec_write()
+audio_ftm_pcm_rec_write(AUDIO_FTM_CLIENT_HANDLE_T, void *, uint32 nBufSize)
 {
   return AUDIO_FTM_SUCCESS;
 

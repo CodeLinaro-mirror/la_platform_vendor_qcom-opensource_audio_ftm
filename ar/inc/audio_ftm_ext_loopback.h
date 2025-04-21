@@ -1,5 +1,5 @@
 /**
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
   @file audio_ftm_ext_loopback.h
@@ -72,10 +72,21 @@ audio_ftm_ext_lp_close
 );
 
 AUDIO_FTM_STS_T
-audio_ftm_ext_lp_read();
+audio_ftm_ext_lp_read
+(
+    AUDIO_FTM_CLIENT_HANDLE_T,        /* Input: client handle */
+    void *,                           /* Input: buffer pointer for reading  */
+    uint32 nBufSize,                  /* Input: Read buffer size */
+    uint32 *pCount                    /* Output: return the actual read bytes */
+);
 
 AUDIO_FTM_STS_T
-audio_ftm_ext_lp_write();
+audio_ftm_ext_lp_write
+(
+    AUDIO_FTM_CLIENT_HANDLE_T,        /* Input: client handle */
+    void *,                           /* Input: buffer pointer containing data for writing */
+    uint32 nBufSize                  /* Input: Write buffer size */
+);
 
 AUDIO_FTM_STS_T
 audio_ftm_ext_lp_iocontrol

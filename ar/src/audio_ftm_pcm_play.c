@@ -8,7 +8,7 @@ Description
 ===========================================================================*/
 
 /*
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
@@ -568,7 +568,7 @@ audio_ftm_pcm_play_close
                       error code otherwise
 =============================================================================*/
 AUDIO_FTM_STS_T
-audio_ftm_pcm_play_read()
+audio_ftm_pcm_play_read(AUDIO_FTM_CLIENT_HANDLE_T clientHandle, void *pBuffer, uint32 nBufSize, uint32 *pCount)
 {
   return AUDIO_FTM_SUCCESS;
 }
@@ -587,7 +587,7 @@ audio_ftm_pcm_play_read()
                        error code otherwise
 ==============================================================================*/
 AUDIO_FTM_STS_T
-audio_ftm_pcm_play_write()
+audio_ftm_pcm_play_write(AUDIO_FTM_CLIENT_HANDLE_T, void *, uint32 nBufSize)
 {
   return AUDIO_FTM_SUCCESS;
 

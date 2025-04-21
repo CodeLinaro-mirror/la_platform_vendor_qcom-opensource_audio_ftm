@@ -9,7 +9,7 @@ extern "C" {
   @file audio_ftm_tone_play.h
   @brief  Audio FTM Tone Play Driver API
 ====================================================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 $Header: //source/qcom/qct/multimedia2/Audio/drivers/ftm/8x60/linux/rel/1.0/inc/audio_ftm_tone_play.h#1 $
@@ -85,11 +85,18 @@ audio_ftm_toneplay_close
 AUDIO_FTM_STS_T
 audio_ftm_toneplay_read
 (
+    AUDIO_FTM_CLIENT_HANDLE_T,        /* Input: client handle */
+    void *,                           /* Input: buffer pointer for reading  */
+    uint32 nBufSize,                  /* Input: Read buffer size */
+    uint32 *pCount                    /* Output: return the actual read bytes */
 );
 
 AUDIO_FTM_STS_T
 audio_ftm_toneplay_write
 (
+    AUDIO_FTM_CLIENT_HANDLE_T,        /* Input: client handle */
+    void *,                           /* Input: buffer pointer containing data for writing */
+    uint32 nBufSize                   /* Input: Write buffer size */
 );
 
 AUDIO_FTM_STS_T
