@@ -324,6 +324,29 @@ LOCAL_SRC_FILES    := config/sun/ftm_test_config_sun-qrd-sku2-snd-card
 include $(BUILD_PREBUILT)
 endif
 
+ifeq ($(TARGET_BOARD_PLATFORM),vienna)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/vienna/ftm_test_config
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_vienna-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/vienna/ftm_test_config_vienna-snd-card
+include $(BUILD_PREBUILT)
+endif
+
 ifeq ($(call is-board-platform-in-list,canoe),true)
 
 include $(CLEAR_VARS)
