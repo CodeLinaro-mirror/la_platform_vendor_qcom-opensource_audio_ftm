@@ -12,6 +12,9 @@ mm-audio-ftm-def += -DVERBOSE
 mm-audio-ftm-def += -D_DEBUG
 mm-audio-ftm-def += -DMSM8960_ALSA
 mm-audio-ftm-def += -DVNDK_ENABLED
+ifeq ($(TARGET_BOARD_PLATFORM),vienna)
+mm-audio-ftm-def += -DNON_ALSA_BE
+endif
 
 include $(CLEAR_VARS)
 
