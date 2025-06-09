@@ -307,6 +307,8 @@ int set_audio_intf_metadata(struct mixer *mixer, char *intf_name, enum dir d, in
        val = USB_TX;
     else if (!strncmp(split_gkv[1], "FM_TX", strlen(split_gkv[1])+1))
        val = FM_TX;
+    else if (!strncmp(split_gkv[1], "HAPTICS", strlen(split_gkv[1])+1))
+       val = HAPTICS_DEVICE;
 
     gkv_size = num_gkv * sizeof(struct agm_key_value);
     ckv_size = num_ckv * sizeof(struct agm_key_value);
@@ -601,6 +603,8 @@ int set_stream_metadata(struct mixer *mixer, int device, uint32_t val, enum stre
        val = PCM_RX_LOOPBACK;
     else if (!strncmp(split_gkv[0], "PCM_RECORD", strlen(split_gkv[0])+1))
        val = PCM_RECORD;
+    else if (!strncmp(split_gkv[0], "HAPTICS_PLAYBACK", strlen(split_gkv[0])+1))
+       val = HAPTICS_PLAYBACK;
     else
        DALSYS_Log_Err("%s:%d Invalid gkv from test_config file\n", __func__, __LINE__);
 
@@ -745,6 +749,10 @@ int set_stream_metadata(struct mixer *mixer, int device, uint32_t val, enum stre
             gkv[index].key = INSTANCE;
             gkv[index].value = val_gkv;
         }
+    } else if (val == HAPTICS_PLAYBACK)
+    {
+        gkv[index].key = STREAMRX;
+        gkv[index].value = val;
     }
     if (val == PCM_RX_LOOPBACK)
     {
