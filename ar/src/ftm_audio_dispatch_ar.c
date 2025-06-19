@@ -7,7 +7,7 @@ extern "C" {
   @file   audio_ftm_dispatch.c
   @brief  AUDIO FTM Dispatcher
 ====================================================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 **/
@@ -61,6 +61,7 @@ extern "C" {
 #define RECORD_ONE_SECOND  50     /* frame numbers for 8K PCM capture in one second */
 #define RECORD_MAX_BUF_SIZE    16000  /* Buffer allocated for collecting record data */
 #define SND_CARD_NUM 0
+#define VIRTUAL_SND_CARD_NUM 100
 typedef union
 {
   AUD_FTM_TONE_PLAY_PARAM_T  tone_play_param;
@@ -321,11 +322,19 @@ int parse(struct test_params *commands)
         printf("\n Sequence for %s found", pmode);
     }
     pmode = (!commands->enable)?en:dis;
-    mxr = mixer_open(SND_CARD_NUM);
+#ifdef NON_ALSA_BE
+    mxr = mixer_open(VIRTUAL_SND_CARD_NUM);
     if (!mxr) {
-        printf("\nOpening mixer control failed");
+        printf("\nOpening mixer control failed NON_ALSA_BE");
         return -1;
     }
+#else
+    mxr = mixer_open(SND_CARD_NUM);
+    if (!mxr) {
+        printf("\nOpening mixer control failed not worked");
+        return -1;
+    }
+#endif
     while((p = fgets(array, sizeof(array), fp))) {
         len = strnlen(p,sizeof(array));
         p[len-1] = '\0';
