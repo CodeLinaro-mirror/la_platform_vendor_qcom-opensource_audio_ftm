@@ -7,7 +7,7 @@ extern "C" {
   @file   audio_ftm_dispatch.c
   @brief  AUDIO FTM Dispatcher
 ====================================================================================================
-# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 **/
@@ -105,6 +105,7 @@ char bename_rx_test_config[50];
 char bename_tx_test_config[50];
 unsigned int device_id_rx_test_config;
 unsigned int device_id_tx_test_config;
+static struct test_params params;
 unsigned int channels_rx_test_config;
 unsigned int channels_tx_test_config;
 
