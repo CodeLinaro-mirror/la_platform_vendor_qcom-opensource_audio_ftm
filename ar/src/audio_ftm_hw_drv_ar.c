@@ -949,8 +949,6 @@ static int play_loopback(void *ctxt)
 	int cap_device_num = 0;
 	size_t bufsize;
 	Aud_FTM_DevCtxt_T *pDevCtxt = (Aud_FTM_DevCtxt_T *)ctxt;
-	struct mixer *mxr;
-	mxr = mixer_open(SOUND_CARD_NUM);
 
     flags = PCM_OUT;
     g_loopback_run = 1;
@@ -970,8 +968,7 @@ static int play_loopback(void *ctxt)
 	device_num = 103;
 
 	pcm = pcm_open(SOUND_CARD_NUM, device_num, flags, &pcm_config_low_latency);
-	configure_mux(mxr, device_num, pDevCtxt->channels_rx, pDevCtxt->be_name_rx);
-	mixer_close(mxr);
+	configure_mux(vir_mixer, device_num, pDevCtxt->channels_rx, pDevCtxt->be_name_rx);
 #endif
 
 	if (!pcm_is_ready(pcm)) {
@@ -1016,16 +1013,13 @@ static int play_ext_loopback(void* ctxt)
     int tone_freq = play_param->freq;
     Aud_FTM_DevCtxt_T *pDevCtxt = play_param->pDevCtxt;
     flags = PCM_OUT;
-    struct mixer *mxr;
-    mxr = mixer_open(SOUND_CARD_NUM);
 
     pcm_config_low_latency.rate = 8000;
     pcm_config_low_latency.channels = 1;
 
     int device_num = 100;
     pcm = pcm_open(SOUND_CARD_NUM, device_num, flags, &pcm_config_low_latency);
-    configure_mux(mxr, device_num, pDevCtxt->channels_rx, pDevCtxt->be_name_rx);
-    mixer_close(mxr);
+    configure_mux(vir_mixer, device_num, pDevCtxt->channels_rx, pDevCtxt->be_name_rx);
 
     if (!pcm_is_ready(pcm)) {
         DALSYS_Log_Err("pcm_ready() failed\n");
@@ -1956,7 +1950,6 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
     uint16  session_id;
     unsigned int period_size = 1024;
     unsigned int period_count = 4;
-    struct mixer *mxr;
     char intf_name[] = "SLIM-DEV1-RX-0";
     char intf_name_one[] = "SLIM-DEV1-TX-0";
     unsigned int rate = 48000;
@@ -1971,8 +1964,7 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
     char gkv_tx_dup[100];
     char *temp;
 
-    mxr = mixer_open(SOUND_CARD_NUM);
-    if (!mxr) {
+    if (!vir_mixer) {
         DALSYS_Log_Err("\nOpening mixer control failed");
         return -1;
     }
@@ -2009,25 +2001,25 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
 
         strlcpy(gkv_dup, pDevCtxt->gkv, strlen(pDevCtxt->gkv)+1);
 
-        if (set_device_media_config(mxr, pDevCtxt->channels, rate, bits, pDevCtxt->be_name)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels, rate, bits, pDevCtxt->be_name)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mxr control */
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name, PLAYBACK, rate, bits, gkv_dup)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name, PLAYBACK, rate, bits, gkv_dup)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mixer control */
-        if (set_stream_metadata(mxr, pDevCtxt->device_id, val_usecase, STREAM_PCM, NULL, pDevCtxt->gkv)) {
+        if (set_stream_metadata(vir_mixer, pDevCtxt->device_id, val_usecase, STREAM_PCM, NULL, pDevCtxt->gkv)) {
             DALSYS_Log_Err("Failed to set pcm metadata\n");
             goto err_close_mixer;
         }
 
         /* connect pcm stream to audio intf */
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id, pDevCtxt->be_name, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id, pDevCtxt->be_name, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect pcm to audio interface\n");
             goto err_close_mixer;
         }
@@ -2048,9 +2040,9 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
             return AUDIO_FTM_ERROR;
         }
 
-        configure_mfc(mxr, pDevCtxt->device_id, pDevCtxt->be_name, PER_STREAM_PER_DEVICE_MFC, STREAM_PCM, rate, pDevCtxt->channels, bits);
+        configure_mfc(vir_mixer, pDevCtxt->device_id, pDevCtxt->be_name, PER_STREAM_PER_DEVICE_MFC, STREAM_PCM, rate, pDevCtxt->channels, bits);
 
-        configure_mux(mxr, pDevCtxt->device_id, pDevCtxt->channels, pDevCtxt->be_name);
+        configure_mux(vir_mixer, pDevCtxt->device_id, pDevCtxt->channels, pDevCtxt->be_name);
 
         pDevCtxt->rx_buf_size = pcm_get_buffer_size(pDevCtxt->pcm)/pb_config.period_count;
 
@@ -2070,28 +2062,28 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
 
         unsigned flags = PCM_IN;
 
-        if (set_device_media_config(mxr, pDevCtxt->channels, rate, bits, pDevCtxt->be_name)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels, rate, bits, pDevCtxt->be_name)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mxr control */
 
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name, CAPTURE, rate, bits, pDevCtxt->gkv)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name, CAPTURE, rate, bits, pDevCtxt->gkv)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mixer control */
 
-        if (set_stream_metadata(mxr, pDevCtxt->device_id, PCM_RECORD, STREAM_PCM, NULL, gkv_dup)) {
+        if (set_stream_metadata(vir_mixer, pDevCtxt->device_id, PCM_RECORD, STREAM_PCM, NULL, gkv_dup)) {
             DALSYS_Log_Err("Failed to set pcm metadata\n");
             goto err_close_mixer;
         }
 
         /* connect pcm stream to audio intf */
 
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id, pDevCtxt->be_name, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id, pDevCtxt->be_name, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect pcm to audio interface\n");
             goto err_close_mixer;
         }
@@ -2132,52 +2124,52 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
             return AUDIO_FTM_ERROR;
         }
 
-        if (set_device_media_config(mxr, pDevCtxt->channels_rx, rate, bits, pDevCtxt->be_name_rx)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels_rx, rate, bits, pDevCtxt->be_name_rx)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
-        if (set_device_media_config(mxr, pDevCtxt->channels_tx, rate, bits, pDevCtxt->be_name_tx)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels_tx, rate, bits, pDevCtxt->be_name_tx)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name_tx, CAPTURE, rate, bits, pDevCtxt->gkv_tx)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name_tx, CAPTURE, rate, bits, pDevCtxt->gkv_tx)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mxr control */
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name_rx, PLAYBACK, rate, bits, pDevCtxt->gkv_rx)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name_rx, PLAYBACK, rate, bits, pDevCtxt->gkv_rx)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
        }
         /* set audio interface metadata mixer control */
-        if (set_stream_metadata(mxr, pDevCtxt->device_id_rx, PCM_LL_PLAYBACK, STREAM_PCM, NULL, gkv_rx_dup)) {
+        if (set_stream_metadata(vir_mixer, pDevCtxt->device_id_rx, PCM_LL_PLAYBACK, STREAM_PCM, NULL, gkv_rx_dup)) {
             DALSYS_Log_Err("Failed to set pcm metadata\n");
             goto err_close_mixer;
         }
 
         /* connect pcm stream to audio intf */
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect pcm to audio interface\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mixer control */
 
-        if (set_stream_metadata(mxr, pDevCtxt->device_id_tx, PCM_RECORD, STREAM_PCM, NULL, gkv_tx_dup)) {
+        if (set_stream_metadata(vir_mixer, pDevCtxt->device_id_tx, PCM_RECORD, STREAM_PCM, NULL, gkv_tx_dup)) {
             DALSYS_Log_Err("Failed to set pcm metadata\n");
             goto err_close_mixer;
        }
 
         /* connect pcm stream to audio intf */
 
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id_tx, pDevCtxt->be_name_tx, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id_tx, pDevCtxt->be_name_tx, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect pcm to audio interface\n");
             goto err_close_mixer;
         }
-        configure_mfc(mxr, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, PER_STREAM_PER_DEVICE_MFC, STREAM_PCM, 48000, pDevCtxt->channels_rx, 16);
+        configure_mfc(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, PER_STREAM_PER_DEVICE_MFC, STREAM_PCM, 48000, pDevCtxt->channels_rx, 16);
     }
 
     if(pDevCtxt->m_loopback_type == AUDIO_FTM_AFE_LOOPBACK)
@@ -2207,50 +2199,50 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
             return AUDIO_FTM_ERROR;
         }
 
-        if (set_device_media_config(mxr, pDevCtxt->channels_rx, rate, bits, pDevCtxt->be_name_rx)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels_rx, rate, bits, pDevCtxt->be_name_rx)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
-        if (set_device_media_config(mxr, pDevCtxt->channels_tx, rate, bits, pDevCtxt->be_name_tx)) {
+        if (set_device_media_config(vir_mixer, pDevCtxt->channels_tx, rate, bits, pDevCtxt->be_name_tx)) {
             DALSYS_Log_Err("Failed to set device media config\n");
             goto err_close_mixer;
         }
 
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name_tx, CAPTURE, rate, bits, pDevCtxt->gkv_tx)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name_tx, CAPTURE, rate, bits, pDevCtxt->gkv_tx)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
         }
 
         /* set audio interface metadata mxr control */
-        if (set_audio_intf_metadata(mxr, pDevCtxt->be_name_rx, PLAYBACK, rate, bits, pDevCtxt->gkv_rx)) {
+        if (set_audio_intf_metadata(vir_mixer, pDevCtxt->be_name_rx, PLAYBACK, rate, bits, pDevCtxt->gkv_rx)) {
             DALSYS_Log_Err("Failed to set device metadata\n");
             goto err_close_mixer;
        }
         /* set audio interface metadata mixer control */
-        if (set_stream_metadata(mxr, pDevCtxt->device_id_rx, PCM_RX_LOOPBACK, STREAM_PCM, NULL, gkv_rx_dup)) {
+        if (set_stream_metadata(vir_mixer, pDevCtxt->device_id_rx, PCM_RX_LOOPBACK, STREAM_PCM, NULL, gkv_rx_dup)) {
             DALSYS_Log_Err("Failed to set pcm metadata\n");
             goto err_close_mixer;
         }
 
         /* connect pcm stream to audio intf */
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect playback pcm to audio interface\n");
             goto err_close_mixer;
         }
 
-        if (connect_audio_intf_to_stream(mxr, pDevCtxt->device_id_tx, pDevCtxt->be_name_tx, STREAM_PCM, true)) {
+        if (connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id_tx, pDevCtxt->be_name_tx, STREAM_PCM, true)) {
             DALSYS_Log_Err("Failed to connect capture pcm to audio interface\n");
-            connect_audio_intf_to_stream(mxr, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, false);
+            connect_audio_intf_to_stream(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx, STREAM_PCM, false);
             goto err_close_mixer;
         }
 
-        if (connect_play_pcm_to_cap_pcm(mxr, pDevCtxt->device_id_rx, pDevCtxt->device_id_tx)) {
+        if (connect_play_pcm_to_cap_pcm(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->device_id_tx)) {
             DALSYS_Log_Err("Failed to connect capture pcm to audio interface\n");
             goto err_close_mixer;
         }
 
-        configure_mfc(mxr, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx,
+        configure_mfc(vir_mixer, pDevCtxt->device_id_rx, pDevCtxt->be_name_rx,
             PER_STREAM_PER_DEVICE_MFC, STREAM_PCM, rate,
             pDevCtxt->channels_rx, pDevCtxt->bitWidth);
     }
@@ -2258,9 +2250,7 @@ audio_ftm_hw_open(Aud_FTM_DevCtxt_T  *pDevCtxt)
     //mixer_close(mxr);
     return AUDIO_FTM_SUCCESS;
 fail :
-    mixer_close(mxr);
 err_close_mixer:
-    mixer_close(mxr);
     return AUDIO_FTM_ERROR;
 }
 
@@ -2268,23 +2258,20 @@ AUDIO_FTM_STS_T
 audio_ftm_hw_close(Aud_FTM_DevCtxt_T  *pDevCtxt)
 {
 	AUDIO_FTM_STS_T  ret;
-    struct mixer *mxr;
 
 	ret = AUDIO_FTM_SUCCESS;
 
 	if(pDevCtxt == NULL)  return AUDIO_FTM_ERR_INVALID_PARAM;
 
-    mxr = mixer_open(SOUND_CARD_NUM);
     if ((pDevCtxt->m_loopback_type == AUDIO_FTM_AFE_LOOPBACK) ||
             (pDevCtxt->m_loopback_type == AUDIO_FTM_EXT_LOOPBACK))
-        audio_ftm_hw_loopback_control_disable(mxr, pDevCtxt);
+        audio_ftm_hw_loopback_control_disable(vir_mixer, pDevCtxt);
 
     if (((pDevCtxt->read_write_flag == PCM_OUT) ||
            (pDevCtxt->read_write_flag == PCM_IN)) &&
             (pDevCtxt->bLoopbackCase != TRUE))
-        audio_ftm_hw_pcm_in_out_control_disable(mxr, pDevCtxt);
+        audio_ftm_hw_pcm_in_out_control_disable(vir_mixer, pDevCtxt);
 
-    mixer_close(mxr);
 	pDevCtxt->m_state=AUDIO_FTM_HW_DRV_CLOSED;
 
 	return ret;
