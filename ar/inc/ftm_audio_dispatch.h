@@ -11,7 +11,7 @@ GENERAL DESCRIPTION
 *====*====*====*====*====*====*====*====*====*====*====*====*====*====*====*/
 
 /*===========================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
                         EDIT HISTORY FOR MODULE
@@ -48,7 +48,6 @@ struct test_params {
   int freq_tolerance;
   pthread_mutex_t lock;
 };
-struct test_params params;
 
 typedef struct
 {

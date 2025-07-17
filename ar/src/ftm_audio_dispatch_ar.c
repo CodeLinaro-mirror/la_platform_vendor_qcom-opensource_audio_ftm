@@ -7,7 +7,7 @@ extern "C" {
   @file   audio_ftm_dispatch.c
   @brief  AUDIO FTM Dispatcher
 ====================================================================================================
-# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 **/
@@ -105,6 +105,7 @@ char bename_rx_test_config[50];
 char bename_tx_test_config[50];
 unsigned int device_id_rx_test_config;
 unsigned int device_id_tx_test_config;
+static struct test_params params;
 unsigned int channels_rx_test_config;
 unsigned int channels_tx_test_config;
 
@@ -10111,9 +10112,15 @@ int execute_test_case(int test_case, int codec, FILE *fp, int vol, int fl,
 {
     int result = 0;
     struct mixer *mxr = 0;
+    struct mixer *virtual_mixer = NULL;
     struct test_params *paraminfo = NULL;
 
-        fprintf(stderr, "size of ftm_tc_devices_tabla = %d\n",
+    /* increase ref count for mixer plugin lib, mixer plugin lib shouldn't unload on precess running */
+    virtual_mixer = mixer_open(VIRTUAL_SND_CARD_NUM);
+    if (virtual_mixer = NULL)
+        fprintf(stderr, "open virtual card(%d) failed\n", VIRTUAL_SND_CARD_NUM);
+
+    fprintf(stderr, "size of ftm_tc_devices_tabla = %d\n",
             sizeof(ftm_tc_devices_tabla)/sizeof(ftm_tc_devices_tabla[0]));
     fprintf(stderr, "size of ftm_tc_devices_sitar = %d\n",
             sizeof(ftm_tc_devices_sitar)/sizeof(ftm_tc_devices_sitar[0]));
@@ -10204,6 +10211,10 @@ int execute_test_case(int test_case, int codec, FILE *fp, int vol, int fl,
         parse(&params);
         pthread_mutex_unlock(&params.lock);
     }
+
+    if (virtual_mixer)
+        mixer_close(virtual_mixer);
+
     return result;
 }
 

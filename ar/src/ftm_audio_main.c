@@ -9,7 +9,7 @@ Description
 ===========================================================================*/
 
 /*===========================================================================
-# Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
                          Edit History
@@ -112,6 +112,7 @@ int execute_test_case(int test_case, int codec, FILE *fp, int vol, int fl,
         int tone_analysis, int freq_tolerance);
 int parse(struct test_params *commands);
 int g_config_test;
+static struct test_params params;
 /*===========================================================================
 FUNCTION   audio_ftm_diag_dispatch
 

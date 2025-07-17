@@ -13,37 +13,7 @@ disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
 tc 2
-#SWR DMIC2
-!Capture
-gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
-pcm_id_tx:101
-channels_tx:1
-Txdevice:0
-
-enable
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
-
-disable
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
-
-tc 3
 #SWR DMIC1
-!Capture
-gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
-pcm_id_tx:101
-channels_tx:1
-Txdevice:0
-
-enable
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
-
-disable
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
-
-tc 4
-#SWR DMIC2
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
@@ -56,6 +26,36 @@ CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
 
 disable
 CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
+
+tc 3
+#SWR DMIC2
+!Capture
+gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
+pcm_id_tx:101
+channels_tx:1
+Txdevice:0
+
+enable
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic2
+
+disable
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic2
+
+tc 4
+#SWR DMIC3
+!Capture
+gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
+pcm_id_tx:101
+channels_tx:1
+Txdevice:0
+
+enable
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic3
+
+disable
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic3
 
 tc 5
 #SWR DMIC1
@@ -73,13 +73,13 @@ disable
 CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
 
 tc 6
-#DMIC2 to SpkrLeft AFE loopback
+#DMIC1 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
-gkv_tx:0-SPEAKER_MIC
+gkv_tx:0-HANDSETMIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
 pcm_id_tx:101
 channels_tx:1
@@ -87,15 +87,15 @@ channels_tx:1
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
 
 tc 7
-#DMIC1 to SpkrLeft AFE loopback
+#DMIC2 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
@@ -109,21 +109,21 @@ channels_tx:1
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic2
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic2
 
 tc 8
-#DMIC2 to SpkrLeft AFE loopback
+#DMIC3 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
-gkv_tx:0-HANDSETMIC
+gkv_tx:0-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
 pcm_id_tx:101
 channels_tx:1
@@ -131,43 +131,21 @@ channels_tx:1
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic3
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
-
-tc 9
-#DMIC1 to SpkrLeft AFE loopback
-!AfeLoop
-gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
-pcm_id_rx:100
-channels_rx:1
-gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
-pcm_id_tx:101
-channels_tx:1
-
-enable
-CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
-
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
-
-disable
-CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
-
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic3
 
 tc 10
-#SpeakerLeft to DMIC2
+#SpeakerLeft to DMIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
-gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
 pcm_id_tx:101
 channels_tx:1
@@ -176,15 +154,15 @@ Txdevice:0
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
 
 tc 11
-#SpeakerLeft to DMIC1
+#SpeakerLeft to DMIC2
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
@@ -199,21 +177,21 @@ Txdevice:0
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic2
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:speaker-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic2
 
 tc 12
-#SpeakerLeft to DMIC2
+#SpeakerLeft to DMIC3
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
 pcm_id_rx:100
 channels_rx:1
-gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
+gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
 pcm_id_tx:101
 channels_tx:1
@@ -222,32 +200,23 @@ Txdevice:0
 enable
 CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:dmic3
 
 disable
 CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
 
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:dmic3
 
 tc 13
-#SpeakerLeft to DMIC1
-!ExternalLoop
-gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+#Haptics
+!Playback
+gkv_rx:HAPTICS_PLAYBACK-HAPTICS
+be_name_rx:CODEC_DMA-LPAIF_WSA-RX-4
 pcm_id_rx:100
 channels_rx:1
-gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
-pcm_id_tx:101
-channels_tx:1
-Txdevice:0
 
 enable
-CODEC_DMA-LPAIF_WSA-RX-3 enableCodecRoute:speaker
-
-CODEC_DMA-LPAIF_RXTX-TX-4 enableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_WSA-RX-4 enableCodecRoute:haptics-dev
 
 disable
-CODEC_DMA-LPAIF_WSA-RX-3 disableCodecRoute:speaker
-
-CODEC_DMA-LPAIF_RXTX-TX-4 disableCodecRoute:handset-mic
+CODEC_DMA-LPAIF_WSA-RX-4 disableCodecRoute:haptics-dev
