@@ -76,6 +76,26 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
 LOCAL_SRC_FILES    := config/lahaina/ftm_test_config
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_lahaina-yupikidp-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/lahaina/ftm_test_config_lahaina-yupikidp-snd-card
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_lahaina-yupikqrd-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/lahaina/ftm_test_config_lahaina-yupikqrd-snd-card
+include $(BUILD_PREBUILT)
 endif
 
 ifeq ($(call is-board-platform-in-list,taro),true)
