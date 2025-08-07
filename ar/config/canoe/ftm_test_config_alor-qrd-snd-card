@@ -1344,8 +1344,8 @@ be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-SPEAKER_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
-pcm_id_tx:101
+be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-4
+pcm_id_tx:103
 channels_tx:1
 
 enable
