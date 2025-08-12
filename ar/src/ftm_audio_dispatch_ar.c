@@ -7,7 +7,7 @@ extern "C" {
   @file   audio_ftm_dispatch.c
   @brief  AUDIO FTM Dispatcher
 ====================================================================================================
-# Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 **/
@@ -255,7 +255,7 @@ int parse(struct test_params *commands)
                 len = len - sublen - 1;
                 temp++;
                 temp[len] = '\0';
-                if (*temp >= '0' || *temp <= '110')
+                if ((atoi(temp) >= 0) || (atoi(temp) <= 110))
                     device_id_rx_test_config = atoi(temp);
                 else
                     device_id_rx_test_config = -1;
@@ -267,7 +267,7 @@ int parse(struct test_params *commands)
                 len = len - sublen - 1;
                 temp++;
                 temp[len] = '\0';
-                if (*temp >= '0' || *temp <= '110')
+                if ((atoi(temp) >= 0) || (atoi(temp) <= 110))
                     device_id_tx_test_config = atoi(temp);
                 else
                     device_id_tx_test_config = -1;
@@ -279,7 +279,7 @@ int parse(struct test_params *commands)
                 len = len - sublen - 1;
                 temp++;
                 temp[len] = '\0';
-                if (*temp >= '0' || *temp <= '10')
+                if ((atoi(temp) >= 0) || (atoi(temp) <= 10))
                     channels_rx_test_config = atoi(temp);
                 else
                     channels_rx_test_config = -1;
@@ -291,7 +291,7 @@ int parse(struct test_params *commands)
                 len = len - sublen - 1;
                 temp++;
                 temp[len] = '\0';
-                if (*temp >= '0' || *temp <= '10')
+                if ((atoi(temp) >= 0) || (atoi(temp) <= 10))
                     channels_tx_test_config = atoi(temp);
                 else
                     channels_tx_test_config = -1;
