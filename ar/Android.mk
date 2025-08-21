@@ -58,7 +58,7 @@ LOCAL_SHARED_LIBRARIES  := libdiag libcutils libdl liblog
 ifneq ($(filter R 11,$(PLATFORM_VERSION)),)
 LOCAL_SHARED_LIBRARIES += libqti-tinyalsa
 else
-LOCAL_SHARED_LIBRARIES += libtinyalsa
+LOCAL_SHARED_LIBRARIES += liboss_tinyalsa
 endif
 
 include $(BUILD_EXECUTABLE)
