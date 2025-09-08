@@ -109,6 +109,8 @@ static struct test_params params;
 unsigned int channels_rx_test_config;
 unsigned int channels_tx_test_config;
 
+struct mixer *vir_mixer = NULL;
+
 struct mixer_ctl *get_ctl(struct mixer *m, char *name)
 {
 
@@ -324,7 +326,7 @@ int parse(struct test_params *commands)
     }
     pmode = (!commands->enable)?en:dis;
 #ifdef NON_ALSA_BE
-    mxr = mixer_open(VIRTUAL_SND_CARD_NUM);
+    mxr = vir_mixer;
     if (!mxr) {
         printf("\nOpening mixer control failed NON_ALSA_BE");
         return -1;
@@ -411,7 +413,10 @@ int parse(struct test_params *commands)
         }
       }
     }
+#ifndef NON_ALSA_BE
     mixer_close(mxr);
+#endif
+
     return ret;
 }
 
@@ -10112,12 +10117,11 @@ int execute_test_case(int test_case, int codec, FILE *fp, int vol, int fl,
 {
     int result = 0;
     struct mixer *mxr = 0;
-    struct mixer *virtual_mixer = NULL;
     struct test_params *paraminfo = NULL;
 
     /* increase ref count for mixer plugin lib, mixer plugin lib shouldn't unload on precess running */
-    virtual_mixer = mixer_open(VIRTUAL_SND_CARD_NUM);
-    if (virtual_mixer = NULL)
+    vir_mixer = mixer_open(VIRTUAL_SND_CARD_NUM);
+    if (vir_mixer == NULL)
         fprintf(stderr, "open virtual card(%d) failed\n", VIRTUAL_SND_CARD_NUM);
 
     fprintf(stderr, "size of ftm_tc_devices_tabla = %d\n",
@@ -10212,8 +10216,8 @@ int execute_test_case(int test_case, int codec, FILE *fp, int vol, int fl,
         pthread_mutex_unlock(&params.lock);
     }
 
-    if (virtual_mixer)
-        mixer_close(virtual_mixer);
+    if (vir_mixer)
+        mixer_close(vir_mixer);
 
     return result;
 }

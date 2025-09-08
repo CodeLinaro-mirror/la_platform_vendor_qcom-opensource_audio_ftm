@@ -137,6 +137,7 @@ extern int g_curr_ext_lb_device;
 extern int g_curr_device;
 extern const char *g_curr_alsa_device_name;
 extern struct ftm_tc_device ftm_tc_devices[];
+extern struct mixer *vir_mixer;
 
 /* for external loopback */
 #define NUM_OF_FREQ 1
