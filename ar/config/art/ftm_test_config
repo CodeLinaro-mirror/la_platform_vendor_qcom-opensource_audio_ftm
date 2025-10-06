@@ -2,43 +2,37 @@ tc 1
 #Left Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 tc 2
 #Right Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:84
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 tc 3
 #HPH_L
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:1
 
@@ -66,7 +60,7 @@ tc 4
 #HPH_R
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:1
 
@@ -94,7 +88,7 @@ tc 11
 #AMIC2
 !Capture
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -125,7 +119,7 @@ tc 16
 #MSM DMIC1
 !Capture
 gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -144,7 +138,7 @@ tc 17
 #MSM DMIC2
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -162,7 +156,7 @@ tc 18
 #MSM DMIC3
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -180,7 +174,7 @@ tc 19
 #MSM DMIC4
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -198,7 +192,7 @@ tc 20
 #MSM DMIC5
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -216,7 +210,7 @@ tc 21
 #MSM DMIC6
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -234,7 +228,7 @@ tc 22
 #MSM DMIC7
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -252,7 +246,7 @@ tc 23
 #MSM DMIC8
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -270,7 +264,7 @@ tc 32
 #SWR DMIC1
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -293,7 +287,7 @@ tc 33
 #SWR DMIC2
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -316,7 +310,7 @@ tc 34
 #SWR DMIC3
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -338,7 +332,7 @@ tc 35
 #SWR DMIC4
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -355,47 +349,42 @@ TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
 SWR_MIC3 SWR_DMIC_MIXER Switch:0
 TX_AIF1_CAP Mixer DEC0:0
+
 tc 51
 #Handset By Earpiece
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 tc 53
 #Primary Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 OT23 Usage Mode:0
-SA1 Rx Channel Select:CH2
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 disable
-WSA PCM CH1 MUX:ZERO
-WSA PCM CH2 MUX:ZERO
+Rx Slot Mask:0
 
 tc 56
 #HPH
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 
@@ -436,11 +425,11 @@ tc 74
 #FM Play
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-SECONDARY
+be_name_tx:QAIF-QAIF_AUD-TX-5
 pcm_id_tx:104
 channels_tx:1
 
@@ -476,30 +465,26 @@ tc 83
 #FM Speaker Play
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-SECONDARY
+be_name_tx:QAIF-QAIF_AUD-TX-5
 pcm_id_tx:104
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH_Stereo
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:3
+OT23 Usage Mode:0
 
 disable
-WSA PCM CH1 MUX:ZERO
-WSA PCM CH2 MUX:ZERO
+Rx Slot Mask:0
 
 tc 110
 #Speaker MIC
 !Capture
 gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -517,7 +502,7 @@ tc 118
 #Headset MIC
 !Capture
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -612,28 +597,24 @@ tc 221
 #MIC1 to EAR AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:PCM_RECORD-SPEAKER_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:104
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 OT23 Usage Mode:0
-SA1 Rx Channel Select:CH_Stereo
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:3
+OT23 Usage Mode:0
 
 TX DEC0 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC0:1
 TX DMIC MUX0:DMIC2
 
 disable
-WSA PCM CH1 MUX:ZERO
-WSA PCM CH2 MUX:ZERO
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC0:0
 TX DMIC MUX0:ZERO
@@ -642,19 +623,17 @@ tc 222
 #HANDSETMIC to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -662,8 +641,7 @@ TX DMIC MUX2:DMIC1
 TX_DEC2 Volume:90
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -672,19 +650,17 @@ tc 223
 #HANDSETMIC to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -692,8 +668,7 @@ TX DMIC MUX2:DMIC1
 TX_DEC2 Volume:82
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -702,11 +677,11 @@ tc 224
 #HANDSETMIC to HDPH_LR AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
@@ -751,11 +726,11 @@ tc 225
 #AMIC2 to HDPH_LR AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
@@ -809,19 +784,17 @@ tc 226
 #AMIC2 to SpkrRight
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -833,8 +806,7 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
@@ -847,19 +819,17 @@ tc 227
 #AMIC2 to SpkrLeft
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -871,8 +841,7 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
@@ -885,19 +854,17 @@ tc 228
 #Speaker MIC to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-SPEAKER_MIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -905,8 +872,7 @@ TX DMIC MUX2:DMIC0
 TX_DEC2 Volume:90
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -915,19 +881,17 @@ tc 229
 #DMIC3 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -935,8 +899,7 @@ TX DMIC MUX2:DMIC2
 TX_DEC2 Volume:100
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -945,27 +908,24 @@ tc 230
 #DMIC4 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
 TX DMIC MUX2:DMIC3
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -974,20 +934,18 @@ tc 241
 #SpeakerLeft to HANDSETMIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -995,8 +953,7 @@ TX_DEC2 Volume:114
 TX DMIC MUX2:DMIC1
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -1005,20 +962,18 @@ tc 242
 #SpeakerRight to HANDSETMIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -1026,8 +981,7 @@ TX_DEC2 Volume:114
 TX DMIC MUX2:DMIC1
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -1036,21 +990,18 @@ tc 243
 #Speakers to HANDSETMIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH_Stereo
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:3
+OT23 Usage Mode:0
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
@@ -1058,8 +1009,7 @@ TX_DEC2 Volume:114
 TX DMIC MUX2:DMIC1
 
 disable
-WSA PCM CH1 MUX:ZERO
-WSA PCM CH2 MUX:ZERO
+Rx Slot Mask:0
 
 TX_AIF1_CAP Mixer DEC2:0
 TX DMIC MUX2:ZERO
@@ -1068,11 +1018,11 @@ tc 244
 #HPH to HANDSETMIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
@@ -1126,11 +1076,11 @@ tc 245
 #Headphones to Headset MIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
@@ -1196,19 +1146,17 @@ tc 246
 #SpeakerLeft to Headset Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH1
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:1
+OT23 Usage Mode:0
 
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -1223,8 +1171,7 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA PCM CH1 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
@@ -1238,19 +1185,17 @@ tc 247
 #SpeakerRight to Headset Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH2
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:2
+OT23 Usage Mode:0
 
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -1265,8 +1210,7 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA PCM CH2 MUX:ZERO
-SA1 Rx Channel Select:CH_Stereo
+Rx Slot Mask:0
 
 TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
@@ -1280,20 +1224,17 @@ tc 248
 #Speakers to Secondary Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_WSA-RX-3
+be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
 enable
-WSA PCM CH1 MUX:AIF_PCM_PB
-WSA PCM CH2 MUX:AIF_PCM_PB
-SA1 Rx Channel Select:CH_Stereo
-SA1 OT23 Usage Mode:0
-SA1 FU21 Stereo Gain Offset dB:75
+Rx Slot Mask:3
+OT23 Usage Mode:0
 
 TX DEC0 MUX:SWR_MIC
 TX SMIC MUX0:SWR_MIC5
@@ -1308,8 +1249,7 @@ ADC2_MIXER Switch:1
 AMIC2_MIXER Switch:1
 
 disable
-WSA PCM CH1 MUX:ZERO
-WSA PCM CH2 MUX:ZERO
+Rx Slot Mask:0
 
 TX DEC0 MUX:ZERO
 TX SMIC MUX0:ZERO
@@ -1323,11 +1263,11 @@ tc 249
 #HPH to Secondary Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 
@@ -1391,11 +1331,11 @@ tc 250
 #HPH to DMIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1450,11 +1390,11 @@ tc 251
 #HPH to DMIC2
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1509,11 +1449,11 @@ tc 252
 #HPH to DMIC3
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1568,11 +1508,11 @@ tc 253
 #HPH to DMIC4
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
+be_name_rx:CODEC_DMA-QAIF-RX-7
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
+be_name_tx:CODEC_DMA-QAIF-TX-10
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
