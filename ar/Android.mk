@@ -348,6 +348,52 @@ LOCAL_SRC_FILES    := config/sun/ftm_test_config_sun-qrd-sku2-snd-card
 include $(BUILD_PREBUILT)
 endif
 
+ifeq ($(call is-board-platform-in-list,hamoa),true)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/hamoa/ftm_test_config
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_hamoa-x1e80100-crd-wsa884x-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/hamoa/ftm_test_config_hamoa-x1e80100-crd-wsa884x-snd-card
+include $(BUILD_PREBUILT)
+endif
+
+ifeq ($(call is-board-platform-in-list,x1p42100),true)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/x1p42100/ftm_test_config
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_x1p42100-crd-wsa884x-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/x1p42100/ftm_test_config_x1p42100-crd-wsa884x-snd-card
+include $(BUILD_PREBUILT)
+endif
+
 ifeq ($(call is-board-platform-in-list,canoe),true)
 
 include $(CLEAR_VARS)
