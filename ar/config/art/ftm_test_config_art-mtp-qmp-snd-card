@@ -32,7 +32,7 @@ tc 3
 #HPH_L
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:1
 
@@ -60,7 +60,7 @@ tc 4
 #HPH_R
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:1
 
@@ -88,7 +88,7 @@ tc 11
 #AMIC2
 !Capture
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -123,7 +123,7 @@ tc 16
 #MSM DMIC1
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -155,7 +155,7 @@ tc 17
 #MSM DMIC2
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -187,7 +187,7 @@ tc 18
 #MSM DMIC3
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -219,7 +219,7 @@ tc 19
 #MSM DMIC4
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -251,7 +251,7 @@ tc 20
 #MSM DMIC5
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -269,7 +269,7 @@ tc 21
 #MSM DMIC6
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -287,7 +287,7 @@ tc 22
 #MSM DMIC7
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -305,7 +305,7 @@ tc 23
 #MSM DMIC8
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -323,7 +323,7 @@ tc 32
 #SWR DMIC1
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -350,7 +350,7 @@ tc 33
 #SWR DMIC2
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -377,7 +377,7 @@ tc 34
 #SWR DMIC3
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -403,7 +403,7 @@ tc 35
 #SWR DMIC4
 !Capture
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -459,7 +459,7 @@ tc 56
 #HPH
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 
@@ -500,7 +500,7 @@ tc 74
 #FM Play
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
@@ -559,7 +559,7 @@ tc 110
 #Speaker MIC
 !Capture
 gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -577,7 +577,7 @@ tc 118
 #Headset MIC
 !Capture
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -680,7 +680,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:PCM_RECORD-SPEAKER_MIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:104
 channels_tx:1
 
@@ -706,7 +706,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -733,7 +733,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -756,11 +756,11 @@ tc 224
 #HANDSETMIC to HDPH_LR AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -805,11 +805,11 @@ tc 225
 #AMIC2 to HDPH_LR AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-HEADPHONES
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -871,7 +871,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -910,7 +910,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HEADPHONE_MIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -949,7 +949,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-SPEAKER_MIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -976,7 +976,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1003,7 +1003,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1029,7 +1029,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1057,7 +1057,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1085,7 +1085,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1109,11 +1109,11 @@ tc 244
 #HPH to HANDSETMIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1167,11 +1167,11 @@ tc 245
 #Headphones to Headset MIC
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1245,7 +1245,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1288,7 +1288,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1331,7 +1331,7 @@ be_name_rx:QAIF-QAIF_AUD-RX-1
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1370,11 +1370,11 @@ tc 249
 #HPH to Secondary Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 
@@ -1442,11 +1442,11 @@ tc 250
 #HPH to DMIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-SPEAKER_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1501,11 +1501,11 @@ tc 251
 #HPH to DMIC2
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1560,11 +1560,11 @@ tc 252
 #HPH to DMIC3
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
@@ -1619,11 +1619,11 @@ tc 253
 #HPH to DMIC4
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-HEADPHONES-INSTANCE1-AUDIO_MBDRC
-be_name_rx:CODEC_DMA-QAIF-RX-7
+be_name_rx:CODEC_DMA-QAIF-RX-2
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
-be_name_tx:CODEC_DMA-QAIF-TX-10
+be_name_tx:CODEC_DMA-QAIF-TX-0
 pcm_id_tx:101
 channels_tx:1
 Txdevice:0
