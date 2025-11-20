@@ -40,6 +40,8 @@ mm_audio_ftm_LDADD = -lm @TINYALSA_LIBS@ -lcutils -llog @DIAG_LIBS@ @GLIB_LIBS@ 
 
 ftmconfdir   = "/etc"
 mm_audio_ftm_la_list =  ${top_srcdir}/ar/config/$(MACHINE_ENABLED)/ftm_test_config_sm6150-idp-snd-card
+mm_audio_ftm_la_list +=  ${top_srcdir}/ar/config/$(MACHINE_ENABLED)/ftm_test_config_sm6150-tavil-snd-card
 ftmconf_SCRIPTS = $(mm_audio_ftm_la_list)
 install-data-hook:
 	chmod go+r $(DESTDIR)$(ftmconfdir)/ftm_test_config_sm6150-idp-snd-card
+	chmod go+r $(DESTDIR)$(ftmconfdir)/ftm_test_config_sm6150-tavil-snd-card
