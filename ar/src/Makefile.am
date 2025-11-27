@@ -58,5 +58,5 @@ ftmconf_SCRIPTS = $(mm_audio_ftm_la_list)
 
 if CUTILS_SUPPORTED
 mm_audio_ftm_CFLAGS += -DFTM_CUTILS_SUPPORTED
-mm_audio_ftm_LDADD = -lcutils -llog
+mm_audio_ftm_LDADD += -lcutils -llog
 endif
