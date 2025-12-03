@@ -57,9 +57,10 @@ AM_CONDITIONAL([BUILDSYSTEM_OPENWRT], [test "x${with_openwrt}" = "xyes"])
 PKG_CHECK_MODULES([AGM], [agm])
 AC_SUBST([AGM_CFLAGS])
 
+if (test "x${with_openwrt}" = "xno"); then
 PKG_CHECK_MODULES([KVH2XML], [kvh2xml])
 AC_SUBST([KVH2XML_CFLAGS])
-
+fi
 PKG_CHECK_MODULES([DIAG], [diag])
 AC_SUBST([DIAG_CFLAGS])
 AC_SUBST([DIAG_LIBS])
