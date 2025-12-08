@@ -407,39 +407,6 @@ LOCAL_SRC_FILES    := config/canoe/ftm_test_config_alor-qrd-wsa884x-snd-card
 include $(BUILD_PREBUILT)
 endif
 
-ifeq ($(call is-board-platform-in-list,chora),true)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := ftm_test_config
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_OWNER := qti
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
-LOCAL_SRC_FILES    := config/chora/ftm_test_config
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := ftm_test_config_chora-mtp-qmp-snd-card
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_OWNER := qti
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
-LOCAL_SRC_FILES    := config/chora/ftm_test_config_chora-mtp-qmp-snd-card
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := ftm_test_config_chora-qrd-snd-card
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_OWNER := qti
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
-LOCAL_SRC_FILES    := config/chora/ftm_test_config_chora-qrd-snd-card
-include $(BUILD_PREBUILT)
-endif
-
 ifeq ($(call is-board-platform-in-list,monaco),true)
 ifeq ($(TARGET_SUPPORTS_WEAR_AON),true)
  include $(CLEAR_VARS)
