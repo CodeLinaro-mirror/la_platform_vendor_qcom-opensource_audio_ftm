@@ -250,7 +250,12 @@ int set_device_media_config(struct mixer *mixer, unsigned int channels,
 
     media_config[0] = rate;
     media_config[1] = channels;
-    media_config[2] = bits_to_alsa_format(bits);
+    /* Check if interface name is ""TDM-LPAIF_AUD-RX-SECONDARY"" for wsa885x_i2c and set format to 32-bit */
+    if (!strcmp(intf_name, "TDM-LPAIF_AUD-RX-SECONDARY")) {
+        media_config[2] = bits_to_alsa_format(32);
+    } else {
+        media_config[2] = bits_to_alsa_format(bits);
+    }
     media_config[3] = AGM_DATA_FORMAT_FIXED_POINT;
 
     DALSYS_Log_Info("%s - %d - %d - %d - %d\n", __func__, media_config[0],  media_config[1], media_config[2], media_config[3]);
