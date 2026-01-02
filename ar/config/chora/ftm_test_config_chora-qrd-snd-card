@@ -510,7 +510,7 @@ be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-PRIMARY
+be_name_tx:CODEC_DMA-LPAIF_AUD-TX-3
 pcm_id_tx:104
 channels_tx:1
 
@@ -550,7 +550,7 @@ be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-PRIMARY
+be_name_tx:CODEC_DMA-LPAIF_AUD-TX-3
 pcm_id_tx:104
 channels_tx:1
 
