@@ -2,7 +2,7 @@ tc 1
 #Left Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 
@@ -438,7 +438,7 @@ tc 51
 #Handset By Earpiece
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:1
 
@@ -453,7 +453,7 @@ tc 53
 #Left Speaker
 !Playback
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 
@@ -510,7 +510,7 @@ be_name_rx:CODEC_DMA-LPAIF_RXTX-RX-0
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-PRIMARY
+be_name_tx:CODEC_DMA-LPAIF_AUD-TX-3
 pcm_id_tx:104
 channels_tx:1
 
@@ -546,11 +546,11 @@ tc 83
 #FM Speaker Play
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:103
 channels_rx:2
 gkv_tx:0-FM_TX
-be_name_tx:MI2S-LPAIF-TX-PRIMARY
+be_name_tx:CODEC_DMA-LPAIF_AUD-TX-3
 pcm_id_tx:104
 channels_tx:1
 
@@ -933,7 +933,7 @@ tc 222
 #MIC1 to handset AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-HANDSETMIC
@@ -969,7 +969,7 @@ tc 223
 #MIC1 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HANDSETMIC
@@ -1123,7 +1123,7 @@ tc 226
 #AMIC2 to SpkrLeft
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-HEADPHONE_MIC
@@ -1163,7 +1163,7 @@ tc 228
 #MIC2 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-SPEAKER_MIC
@@ -1197,7 +1197,7 @@ tc 229
 #MIC3 to SpkrLeft AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-SPEAKER_MIC
@@ -1232,7 +1232,7 @@ tc 230
 #MIC4 to SpkrRight AFE loopback
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:0-SPEAKER_MIC
@@ -1267,7 +1267,7 @@ tc 242
 #SpkrLeft to MIC2
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1308,7 +1308,7 @@ tc 243
 #Speakers to MIC1
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1472,7 +1472,7 @@ tc 247
 #SpeakerLeft to Headset Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HEADPHONE_MIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
@@ -1512,7 +1512,7 @@ tc 248
 #Speaker to Secondary Mic External loopback
 !ExternalLoop
 gkv_rx:PCM_LL_PLAYBACK-SPEAKER-INSTANCE1-AUDIO_MBDRC
-be_name_rx:TDM-LPAIF_WSA-RX-PRIMARY
+be_name_rx:TDM-LPAIF_AUD-RX-SECONDARY
 pcm_id_rx:100
 channels_rx:2
 gkv_tx:PCM_RECORD-HANDSETMIC-AUDIO_FLUENCE_SMECNS-INSTANCE1
