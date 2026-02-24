@@ -1443,6 +1443,7 @@ channels_tx:1
 enable
 Rx Slot Mask:3
 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB: 84
 
 TX_SWR_DMIC Enable:1
 TX DEC4 MUX:SWR_MIC
@@ -1483,6 +1484,7 @@ channels_tx:1
 enable
 Rx Slot Mask:3
 OT23 Usage Mode:0
+SA1 FU21 Stereo Gain Offset dB: 84
 
 TX_SWR_DMIC Enable:1
 TX DEC5 MUX:SWR_MIC
