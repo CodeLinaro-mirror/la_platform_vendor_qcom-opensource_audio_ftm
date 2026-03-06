@@ -59,6 +59,8 @@ when       who     what, where, why
 /* definitions for Android logging */
 #include <log/log.h>
 #include <cutils/properties.h>
+
+#define FTM_CONFIG_DIR "/vendor/etc"
 #else /* ANDROID */
 #define strlcat g_strlcat
 #define strlcpy g_strlcpy
@@ -66,7 +68,11 @@ when       who     what, where, why
 #define ALOGE(...)      fprintf(stderr, __VA_ARGS__)
 #define ALOGV(...)      fprintf(stderr, __VA_ARGS__)
 #define ALOGD(...)      fprintf(stderr, __VA_ARGS__)
+
+#define FTM_CONFIG_DIR "/etc"
 #endif /* ANDROID */
+
+#define FTM_CONFIG_BASE FTM_CONFIG_DIR "/ftm_test_config"
 
 #define SND_CARD_HW      0
 
@@ -274,7 +280,7 @@ int main(int argc, char *argv[])
             }
             printf("\nsoundCardName %s\n", soundCardName);
             snprintf(config_path, sizeof(config_path), "%s_%s",
-                "/vendor/etc/ftm_test_config", soundCardName);
+                "FTM_CONFIG_BASE", soundCardName);
             if (strstr(soundCardInfo, "msm8930-sitar-snd-card")) {
                 printf("Detected sitar 1.x sound card\n");
                 codec = CODEC_SITAR;
@@ -312,45 +318,33 @@ int main(int argc, char *argv[])
                 fp_config = NULL;
                 break;
             } else if (strstr(soundCardName, "qrd") &&
-                      ((fp_config = fopen("/vendor/etc/ftm_test_config_qrd","r")) != NULL)) {
+                      ((fp_config = fopen(FTM_CONFIG_BASE "_qrd","r")) != NULL)) {
                 printf("Use the soundcard ftm_test_config_qrd file\n");
                 codec = CODEC_CONFIG_SUPPORT;
                 fclose(fp_config);
                 fp_config = NULL;
-                snprintf(config_path, sizeof(config_path), "/vendor/etc/ftm_test_config_qrd");
+                snprintf(config_path, sizeof(config_path), FTM_CONFIG_BASE "_qrd");
                 break;
-            } else if ((fp_config = fopen("/vendor/etc/ftm_test_config","r")) != NULL) {
+            } else if ((fp_config = fopen(FTM_CONFIG_BASE,"r")) != NULL) {
                 printf("Use the codec ftm_test_config file\n");
                 codec = CODEC_CONFIG_SUPPORT;
                 fclose(fp_config);
                 fp_config = NULL;
-                /* use default config file( ftm_test_config) as last resort. */
-                snprintf(config_path, sizeof(config_path), "/vendor/etc/ftm_test_config");
+                snprintf(config_path, sizeof(config_path), FTM_CONFIG_BASE);
                 break;
-            } else if ((fp_config = fopen("/vendor/etc/ftm_test_config_anorak-idp-snd-card","r")) != NULL) {
+            } else if ((fp_config = fopen(FTM_CONFIG_BASE "_anorak-idp-snd-card","r")) != NULL) {
                 printf("Use the codec ftm_test_config_anorak-idp-snd-card file\n");
                 codec = CODEC_CONFIG_SUPPORT;
                 fclose(fp_config);
                 fp_config = NULL;
-                /* use default config file( ftm_test_config) as last resort. */
-                snprintf(config_path, sizeof(config_path), "/vendor/etc/ftm_test_config_anorak-idp-snd-card");
+                snprintf(config_path, sizeof(config_path), FTM_CONFIG_BASE "_anorak-idp-snd-card");
                 break;
-            } else if ((fp_config = fopen("/vendor/etc/ftm_test_config_anorak-qxr-snd-card","r")) != NULL) {
+            } else if ((fp_config = fopen(FTM_CONFIG_BASE "_anorak-qxr-snd-card","r")) != NULL) {
                 printf("Use the codec ftm_test_config_anorak-qxr-snd-card file\n");
                 codec = CODEC_CONFIG_SUPPORT;
                 fclose(fp_config);
                 fp_config = NULL;
-                /* use default config file( ftm_test_config) as last resort. */
-                snprintf(config_path, sizeof(config_path), "/vendor/etc/ftm_test_config_anorak-qxr-snd-card");
-                break;
-            }
-	    else if ((fp_config = fopen("/etc/ftm_test_config","r")) != NULL) {
-                printf("Use the codec ftm_test_config file\n");
-                codec = CODEC_CONFIG_SUPPORT;
-                fclose(fp_config);
-                fp_config = NULL;
-                /* use default config file( ftm_test_config) as last resort. */
-                snprintf(config_path, sizeof(config_path), "/etc/ftm_test_config");
+                snprintf(config_path, sizeof(config_path), FTM_CONFIG_BASE "_anorak-qxr-snd-card");
                 break;
             } else {
                 printf("Detected tabla 2.x sound card\n");
