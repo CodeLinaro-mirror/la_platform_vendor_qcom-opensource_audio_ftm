@@ -348,7 +348,7 @@ LOCAL_SRC_FILES    := config/sun/ftm_test_config_sun-qrd-sku2-snd-card
 include $(BUILD_PREBUILT)
 endif
 
-ifeq ($(call is-board-platform-in-list,hamoa),true)
+ifeq ($(call is-board-platform-in-list,hamoa hamoa_la),true)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := ftm_test_config
