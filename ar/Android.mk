@@ -348,7 +348,7 @@ LOCAL_SRC_FILES    := config/sun/ftm_test_config_sun-qrd-sku2-snd-card
 include $(BUILD_PREBUILT)
 endif
 
-ifeq ($(call is-board-platform-in-list,hamoa),true)
+ifeq ($(call is-board-platform-in-list,hamoa hamoa_la),true)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := ftm_test_config
@@ -517,6 +517,46 @@ LOCAL_MODULE_OWNER := qti
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
 LOCAL_SRC_FILES    := config/art/ftm_test_config_art-qrd-qmp-snd-card
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_pebble-mtp-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/art/ftm_test_config_pebble-mtp-snd-card
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_pebble-mtp-wcd9378-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/art/ftm_test_config_pebble-mtp-wcd9378-snd-card
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_pebble-mtp-qmp-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/art/ftm_test_config_pebble-mtp-qmp-snd-card
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_pebble-qrd-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/art/ftm_test_config_pebble-qrd-snd-card
 include $(BUILD_PREBUILT)
 endif
 
