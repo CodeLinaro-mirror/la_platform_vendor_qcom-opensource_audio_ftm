@@ -48,19 +48,12 @@ AC_ARG_WITH([cutils],
      [with_cutils=no])
 AM_CONDITIONAL([CUTILS_SUPPORTED], [test "x${with_cutils}" = "xyes"])
 
-AC_ARG_WITH([openwrt],
-    AS_HELP_STRING([use openwrt (default is no)]),
-    [with_openwrt=$withval],
-    [with_openwrt=no])
-AM_CONDITIONAL([BUILDSYSTEM_OPENWRT], [test "x${with_openwrt}" = "xyes"])
-
 PKG_CHECK_MODULES([AGM], [agm])
 AC_SUBST([AGM_CFLAGS])
 
-if (test "x${with_openwrt}" = "xno"); then
 PKG_CHECK_MODULES([KVH2XML], [kvh2xml])
 AC_SUBST([KVH2XML_CFLAGS])
-fi
+
 PKG_CHECK_MODULES([DIAG], [diag])
 AC_SUBST([DIAG_CFLAGS])
 AC_SUBST([DIAG_LIBS])
