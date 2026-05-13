@@ -751,7 +751,7 @@ tc 221
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
 pcm_id_rx:103
-channels_rx:1
+channels_rx:2
 gkv_tx:PCM_RECORD-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
 pcm_id_tx:104
@@ -774,7 +774,6 @@ WSA_RX0 Digital Volume:62
 WSA_RX1 Digital Volume:62
 
 TX DEC0 MUX:MSM_DMIC
-TX_CDC_DMA_TX_3 Channels:One
 TX_AIF1_CAP Mixer DEC0:1
 TX DMIC MUX0:DMIC0
 
