@@ -650,4 +650,3 @@ LOCAL_SRC_FILES    := config/shikra/ftm_test_config_shikra-cpu-snd-card
 include $(BUILD_PREBUILT)
 endif
 
-endif
