@@ -626,6 +626,7 @@ else
  LOCAL_SRC_FILES    := config/monaco/ftm_test_config
  include $(BUILD_PREBUILT)
 endif
+endif
 
 ifeq ($(call is-board-platform-in-list,shikra),true)
 
@@ -659,4 +660,3 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
 LOCAL_SRC_FILES    := config/shikra/ftm_test_config_shikra-cpu-snd-card
 include $(BUILD_PREBUILT)
 endif
-
