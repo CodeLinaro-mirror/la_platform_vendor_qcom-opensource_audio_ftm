@@ -660,3 +660,4 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
 LOCAL_SRC_FILES    := config/shikra/ftm_test_config_shikra-cpu-snd-card
 include $(BUILD_PREBUILT)
 endif
+
