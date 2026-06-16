@@ -518,6 +518,16 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
 LOCAL_SRC_FILES    := config/chora/ftm_test_config_bourtzi-qrd-wcn6450-snd-card
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ftm_test_config_bourtzi-qrd-wsa883x-snd-card
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_OWNER := qti
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/
+LOCAL_SRC_FILES    := config/chora/ftm_test_config_bourtzi-qrd-wsa883x-snd-card
+include $(BUILD_PREBUILT)
 endif
 
 ifeq ($(call is-board-platform-in-list,malabar),true)
