@@ -628,7 +628,7 @@ else
 endif
 endif
 
-ifeq ($(call is-board-platform-in-list,shikra),true)
+ifeq ($(call is-board-platform-in-list,shikra sa2390),true)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := ftm_test_config
