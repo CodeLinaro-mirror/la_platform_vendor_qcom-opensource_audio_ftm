@@ -1060,7 +1060,7 @@ tc 221
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
 pcm_id_rx:103
-channels_rx:2
+channels_rx:1
 gkv_tx:PCM_RECORD-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
 pcm_id_tx:104
@@ -1985,3 +1985,4 @@ TX SMIC MUX0:ZERO
 ADC2_BCS Disable:0
 ADC2_MIXER Switch:0
 AMIC3_MIXER Switch:0
+
